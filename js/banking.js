@@ -10,6 +10,7 @@ console.log("First = ", first );
 console.log("second = ", second);
 */
 
+// Share the function between two input field below-----
 function inputField(inputId){
     const inputField = document.getElementById(inputId);
     const inputValueText = inputField.value;
