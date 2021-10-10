@@ -10,15 +10,15 @@ console.log("First = ", first );
 console.log("second = ", second);
 */
 
-function getInput(){
-    const depositInput = document.getElementById('deposit-input-field');
-    const depositAmountText = depositInput.value;
-    const depositAmount = parseFloat(depositAmountText);
+function inputField(inputId){
+    const inputField = document.getElementById(inputId);
+    const inputValueText = inputField.value;
+    const inputAmount = parseFloat(inputValueText);
 
     // clear the input field
-    depositInput.value = '';
-    
-    return depositAmount;
+    inputField.value = '';
+
+    return inputAmount;
 
     
 }
@@ -32,7 +32,7 @@ document.getElementById('deposit-button').addEventListener('click', function(){
     const depositAmountText = depositInput.value;
     const depositAmount = parseFloat(depositAmountText);
     */
-   const depositAmount = getInput();
+   const depositAmount = inputField('deposit-input-field');
     
     // get deposit total
     const depositTotal = document.getElementById('deposit-total');
@@ -62,6 +62,7 @@ document.getElementById('withdraw-button').addEventListener('click', function(){
     const withdrawAmountText = withdrawInput.value;
     const withdrawAmount = parseFloat(withdrawAmountText);
     */
+   const withdrawAmount = inputField('withdraw-input');
 
     //get withdraw total and add total withdraw balance
     const withdrawTotal = document.getElementById('withdraw-total');
