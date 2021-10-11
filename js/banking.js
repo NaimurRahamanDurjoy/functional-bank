@@ -31,6 +31,21 @@ function updateField(updateFieldId, inputAmount){
     updateAmountTotal.innerText = currentAmountTotal;
 }
 
+function updateBalanceField(getNewAmount, isAdd){
+    const balanceTotal = document.getElementById('balance-total');
+    const previousBalanceText = balanceTotal.innerText;
+    const previousBalance = parseFloat(previousBalanceText);
+
+    if(isAdd == true){
+        const newBalance = previousBalance + getNewAmount;
+        balanceTotal.innerText = newBalance;
+    }
+    else if(isAdd == false){
+        const newBalance = previousBalance - getNewAmount;
+        balanceTotal.innerText = newBalance;
+    }
+}
+
 
 // get Deposit and total Balance by event handler
 document.getElementById('deposit-button').addEventListener('click', function(){
@@ -53,13 +68,14 @@ document.getElementById('deposit-button').addEventListener('click', function(){
     updateField('deposit-total', depositAmount);
 
     // update total balance
-    const balanceTotal = document.getElementById('balance-total');
+    /* const balanceTotal = document.getElementById('balance-total');
     const previousBalanceText = balanceTotal.innerText;
     const previousBalance = parseFloat(previousBalanceText);
 
     const newBalance = previousBalance + depositAmount;
     balanceTotal.innerText = newBalance;
-
+ */
+updateBalanceField(depositAmount, true);
     
 
 })
@@ -84,12 +100,14 @@ document.getElementById('withdraw-button').addEventListener('click', function(){
     updateField('withdraw-total', withdrawAmount);
 
     // get total balance and reduce by withdraw
-    const balanceTotal = document.getElementById('balance-total');
+    /* const balanceTotal = document.getElementById('balance-total');
     const previousBalanceTotalText = balanceTotal.innerText;
     const previousBalanceTotal = parseFloat(previousBalanceTotalText);
 
     const newBalanceTotal = previousBalanceTotal - withdrawAmount;
-    balanceTotal.innerText = newBalanceTotal;
+    balanceTotal.innerText = newBalanceTotal; */
+
+    updateBalanceField(withdrawAmount, false);
 /* 
     //clear the input field
     withdrawInput.value = ''; */
